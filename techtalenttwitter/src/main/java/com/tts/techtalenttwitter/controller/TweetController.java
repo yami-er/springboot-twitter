@@ -1,3 +1,4 @@
+
 package com.tts.techtalenttwitter.controller;
 
 import java.util.List;
@@ -39,7 +40,7 @@ public class TweetController {
     
     @PostMapping(value = "/tweets")
     public String submitTweetForm(@Valid Tweet tweet, BindingResult bindingResult, Model model) {
-        com.tts.techtalenttwitter.controller.User user = userService.getLoggedInUser();
+        User user = userService.getLoggedInUser();
         if (!bindingResult.hasErrors()) {
             tweet.setUser(user);
             tweetService.save(tweet);
@@ -47,5 +48,13 @@ public class TweetController {
             model.addAttribute("tweet", new Tweet());
         }
         return "newTweet";
+    }
+    
+    @GetMapping(value = "/tweets/{tag}")
+    public String getTweetsByTag(@PathVariable(value="tag") String tag, Model model) {
+        List<Tweet> tweets = tweetService.findAllWithTag(tag);
+        model.addAttribute("tweetList", tweets);
+        model.addAttribute("tag", tag);
+        return "taggedTweets";
     }
 }
