@@ -1,6 +1,7 @@
 package com.tts.techtalenttwitter.configuration;
 
-import javax.activation.DataSource;
+//import javax.activation.DataSource;
+//import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,7 +24,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    private DataSource dataSource;
+    private javax.sql.DataSource dataSource;
 
     @Value("${spring.queries.users-query}")
     private String usersQuery;
