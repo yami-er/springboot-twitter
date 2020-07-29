@@ -1,11 +1,13 @@
 package com.tts.techtalenttwitter.service;
 
+import java.util.List;
 import java.util.Arrays;
 import java.util.HashSet;
 
-import javax.management.relation.Role;
+
 
 import com.tts.techtalenttwitter.model.User;
+import com.tts.techtalenttwitter.model.Role;
 import com.tts.techtalenttwitter.repository.RoleRepository;
 import com.tts.techtalenttwitter.repository.UserRepository;
 
@@ -13,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import antlr.collections.List;
+
 
 @Service
 public class UserService {
